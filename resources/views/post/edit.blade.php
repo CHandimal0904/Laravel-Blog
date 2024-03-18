@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('New Poast') }}</div>
+                <div class="card-header">{{ __('Edit Post') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('Post.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('post.update', $post->id) }}">
                         @csrf
                         <div class="mb-3">
                           <label>Input Post Title</label>
@@ -24,14 +24,9 @@
                         <div class="mb-3">
                             <label>Input Post Description</label>
                                 <textarea class="form-control" placeholder="Enter Description Here" name="description"></textarea>
-                        </div>
-                        <div class="form_group">
-                            <input type="file" class="form-control" name="thumbnail">
-                        </div>
+                              </div>
 
-                        <div>
-                        <button type="submit"  class="btn btn-primary">Post</button>
-                        </div>    
+                        <button type="submit"  class="btn btn-primary">Update</button>
                     </div>
                       </form>
                 </div>
